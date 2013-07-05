@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+  <BgpPeers>
+        
+    <!--
+        - IBGP connection
+        - local BGP identifier lower than remote BGP identifier
+        - active connection, no peer dampening, no open delay
+      -->
+    <BgpPeer name="remote-peer">
+      <Client remote="192.168.107.163" />
+      <AutonomousSystem local="200" remote="200" />
+      <BgpIdentifier local="100" remote="200.0.0.0" />
+      <Options passiveTcpEstablishment="false" dampPeerOscillation="false"/>
+      <Timers holdTime="30" idleHoldTime="15" delayOpen="15" connectRetryTime="10" automaticStartInterval="5" />
+    </BgpPeer>
+    
+  </BgpPeers>
+          
+</Config>
