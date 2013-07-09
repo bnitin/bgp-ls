@@ -39,12 +39,8 @@ public class BgpDaemonApplicationListener extends Thread implements Runnable {
 	public BgpDaemonApplicationListener() {
 	}
 
-	public void listen() {
+	public void run () {
 		bgpService = new BGPv4Service();
 		bgpService.startService();		
-	}
-	
-	public void run () {
-		listen();
 	}
 }

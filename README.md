@@ -16,17 +16,13 @@ This project requires a minimum of JavaSE-1.6.
 It depends on the following libraries.
 - junit-3.8.1
 - quartz-2.1.6 (org.quartz-scheduler)
-  - c3p0-0.9.1.1
-  - slf4j-api-1.6.1 (org.slf4j.api)
 - jackson-core-asl-1.9.12 (org.codehaus.jackson)
 - jackson-mapper-asl-1.9.12 (org.codehaus.jackson)
 - commons-lang3-3.1
-- lang-2.1.0 (org.mod4j.org.apache.commons)
 - logging-1.0.4
 - log4j-1.2.15
-- org.slf4j-api-1.7.2 (org.slf4j.api)
-- org.slf4j.log4j12-1.7.2 (org.slf4j.log4j12)
-  - slf4j-log4j12-1.7.2
+- slf4j-api-1.7.2 (org.slf4j.api)
+- slf4j.log4j12-1.7.2 (org.slf4j.log4j12)
 - commons-configuration-1.9 (commons-configuration)
 - netty-3.6.3.Final
 - cli-1.0.0 (org.mod4j.org.apache.commons)
@@ -34,4 +30,18 @@ It depends on the following libraries.
 - commons-logging-1.1.1
 
 Dependencies can be directly obtained using maven pom file.
+
+Runtime arguments
+=================
+Required:
+ -c <config-file>
+
+Optional:
+ -l <log4j XML config file>
+ -e <export-file>
+
+See the config-samples directory, for a sample of config-file and log-config-file
+
+If the <export-file> argument is not provided, then topology data will not be exported to a file.
+
 
