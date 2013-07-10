@@ -7,7 +7,7 @@ This is built on top of a BGP daemon that connects to a BGP peer in the network.
 
 The core BGP daemon is taken from the open-source project [rbieniek/BGP4J](https://github.com/rbieniek/BGP4J). The base project was modified to run as a standalone Java application and BGP Link state extensions were then added on top of it.
 
-Currently the code support draft-ietf-idr-ls-distribution-01.
+Currently the code is based off draft-ietf-idr-ls-distribution-01. It is not compatible with version -00 or -02 (and beyond). 
 
 This source is licensed under Apache 2.0.
 
