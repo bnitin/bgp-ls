@@ -16,12 +16,12 @@
  */
 package org.topology.bgp_ls.net.attributes;
 
-import java.util.Set;
-
 import org.topology.bgp_ls.net.AddressFamily;
 import org.topology.bgp_ls.net.SubsequentAddressFamily;
 
 /**
+ * Minimal representation of a BGP NLRI's data. This object should be extended
+ * to represent the actual NLRI content. 
  * @author nitinb
  *
  */
@@ -29,15 +29,20 @@ public class MultiProtocolNLRIInformation {
 	AddressFamily afi;
 	SubsequentAddressFamily safi;
 	
+	/**
+	 * @param afi BGP address family
+	 * @param safi BGP subsequent address family
+	 */
 	protected MultiProtocolNLRIInformation(AddressFamily afi, SubsequentAddressFamily safi) {
 		this.afi = afi;
 		this.safi = safi;
 	}
 	
+	/**
+	 * Returns the subsequent address family associated with this object
+	 * @return BGP subsequent address family
+	 */
 	protected SubsequentAddressFamily getSubsequentAddressFamily() {
 		return safi;
-	}
-	
-	public void processNLRIInformation(Set<PathAttribute> attrs) {
 	}
 }

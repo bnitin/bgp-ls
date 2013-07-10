@@ -29,12 +29,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Decodes a link descriptor tlv
  * @author nitinb
  *
  */
 public class BgpLsLinkDescriptorCodec {
 	private static final Logger log = LoggerFactory.getLogger(BgpLsNodeDescriptorCodec.class);
 
+	/**
+	 * Decodes a link descriptor tlv and updates the object provided as input param
+	 * @param buffer Data stream of data containing the tlv
+	 * @param ld link descriptor to update
+	 */
 	public static void decodeLinkDescriptor(ChannelBuffer buffer, BgpLsLinkDescriptor ld) {
 		
 		while(buffer.readable()) {
@@ -71,8 +77,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the multi-topology id sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeLinkMultiTopologyId(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {
@@ -91,8 +98,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the IPv6 neighbor address sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeIPv6NeighborAddress(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {
@@ -115,8 +123,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the IPv6 interface address sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeIPv6InterfaceAddress(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {
@@ -139,8 +148,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the IPv4 neighbor address sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeIPv4NeighborAddress(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {
@@ -163,8 +173,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the IPv4 interface address sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeIPv4InterfaceAddress(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {
@@ -187,8 +198,9 @@ public class BgpLsLinkDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param ld
+	 * Decodes the link identifiers
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param ld Link descriptor to update
 	 */
 	private static void decodeLinkIdentifiers(ChannelBuffer buffer,
 			BgpLsLinkDescriptor ld) {

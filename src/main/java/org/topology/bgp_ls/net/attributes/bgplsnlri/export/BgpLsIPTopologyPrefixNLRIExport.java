@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Exports a topology prefix in JSON format
  * @author nitinb
  *
  */
@@ -37,6 +38,12 @@ public class BgpLsIPTopologyPrefixNLRIExport {
 
 	private static final Logger log = LoggerFactory.getLogger(BgpLsIPTopologyPrefixNLRI.class);
 
+	/**
+	 * Exports the topology prefix in JSON format
+	 * @param prefixNLRI prefix object
+	 * @param attr link state attribute
+	 * @throws Exception
+	 */
 	synchronized public static void export(MultiProtocolNLRIInformation prefixNLRI, PathAttribute attr) throws Exception {
 		LinkStateAttribute lsa = (LinkStateAttribute)attr;
 		JsonGenerator exportWriter = (JsonGenerator)MultiProtocolNLRIExport.getExportWriter();

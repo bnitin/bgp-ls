@@ -25,6 +25,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * This class is used for decoding a BGP link-state NLRI for VPNs.
+ * VPN topology is a special case of non-VPN topology, containing VPN
+ * specific attributes, in addition to the regular topology data.
  * @author nitinb
  *
  */
@@ -33,11 +36,9 @@ public class BgpLsNLRIVpnCodec extends BgpLsNLRICodec {
 	private static final Logger log = LoggerFactory.getLogger(BgpLsNLRIVpnCodec.class);
 
 	/**
-	 * 
+	 * Decodes the data portion of a MP-BGP link state NLRI
+	 * @param buffer Data stream containing the tlv
 	 */
-	public BgpLsNLRIVpnCodec() {
-	}
-
 	public MultiProtocolNLRIInformation decodeNLRI(ChannelBuffer buffer) {
 		
 		BgpLsNLRIInformation nlriInfo;

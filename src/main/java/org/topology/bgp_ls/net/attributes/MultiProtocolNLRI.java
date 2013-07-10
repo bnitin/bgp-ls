@@ -16,7 +16,6 @@
  */
 package org.topology.bgp_ls.net.attributes;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -46,97 +45,39 @@ public class MultiProtocolNLRI extends PathAttribute {
 	private PathAttributeType attrType;
 	
 	/**
-	 * @param category
+	 * 
 	 */
 	public MultiProtocolNLRI() {
 		super(Category.OPTIONAL_NON_TRANSITIVE);
 	}
 
-
 	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily) {
-		this();
-		
-		this.attrType = attrType;
-		this.addressFamily = addressFamily;
-		this.subsequentAddressFamily = subsequentAddressFamily;
-	}
-	
-	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily, byte[] nextHopAddress) {
-		this(attrType, addressFamily, subsequentAddressFamily);
-		
-		setNextHopAddress(nextHopAddress);
-	}
-	
-	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily, BinaryNextHop nextHop) {
-		this(attrType, addressFamily, subsequentAddressFamily);
-		
-		this.nextHop = nextHop;
-	}
-	
-	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily, byte[] nextHopAddress, 
-			MultiProtocolNLRIInformation[] nlris) {
-		this(attrType, addressFamily, subsequentAddressFamily, nextHopAddress);
-		
-		for(MultiProtocolNLRIInformation nlri : nlris)
-			this.nlris.add(nlri);
-	}
-	
-	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily, BinaryNextHop nextHop, 
-			MultiProtocolNLRIInformation[] nlris) {
-		this(attrType, addressFamily, subsequentAddressFamily, nextHop);
-		
-		for(MultiProtocolNLRIInformation nlri : nlris)
-			this.nlris.add(nlri);
-	}
-	
-	/**
-	 * @param category
-	 */
-	public MultiProtocolNLRI(PathAttributeType attrType, AddressFamily addressFamily, SubsequentAddressFamily subsequentAddressFamily, BinaryNextHop nextHop, 
-			Collection<MultiProtocolNLRIInformation> nlris) {
-		this(attrType, addressFamily, subsequentAddressFamily, nextHop);
-		
-		if(nlris != null)
-			this.nlris.addAll(nlris);
-	}
-	/**
-	 * @return the addressFamily
+	 * Gets the BGP address family
+	 * @return addressFamily
 	 */
 	public AddressFamily getAddressFamily() {
 		return addressFamily;
 	}
 
 	/**
-	 * @param addressFamily the addressFamily to set
+	 * Sets the BGP address family
+	 * @param addressFamily addressFamily
 	 */
 	public void setAddressFamily(AddressFamily addressFamily) {
 		this.addressFamily = addressFamily;
 	}
 
 	/**
-	 * @return the subsequentAddressFamily
+	 * Gets the BGP subsequent address family
+	 * @return subsequentAddressFamily
 	 */
 	public SubsequentAddressFamily getSubsequentAddressFamily() {
 		return subsequentAddressFamily;
 	}
 
 	/**
-	 * @param subsequentAddressFamily the subsequentAddressFamily to set
+	 * Sets the BGP subsequent address family
+	 * @param subsequentAddressFamily subsequentAddressFamily
 	 */
 	public void setSubsequentAddressFamily(
 			SubsequentAddressFamily subsequentAddressFamily) {
@@ -160,14 +101,16 @@ public class MultiProtocolNLRI extends PathAttribute {
 	}
 	
 	/**
-	 * @return the nextHopAddress
+	 * Gets the nexthop address
+	 * @return nexthop address
 	 */
 	public BinaryNextHop getNextHop() {
 		return nextHop;
 	}
 
 	/**
-	 * @param nextHopAddress the nextHopAddress to set
+	 * Sets the nexthop address, given a byte array
+	 * @param nextHopAddress nexthop address
 	 */
 	public void setNextHopAddress(byte[] nextHopAddress) {
 		if(nextHopAddress != null)
@@ -177,26 +120,33 @@ public class MultiProtocolNLRI extends PathAttribute {
 	}
 
 	/**
-	 * @param nextHopAddress the nextHopAddress to set
+	 * Sets the nexthop address, given a binary nexthop
+	 * @param nextHopAddress nexthop address
 	 */
 	public void setNextHop(BinaryNextHop nextHop) {
 		this.nextHop = nextHop;
 	}
 
 	/**
-	 * @return the nlris
+	 * Gets the list of NLRIs associated with this object
+	 * @return list of nlris
 	 */
 	public List<MultiProtocolNLRIInformation> getNlris() {
 		return nlris;
 	}
 
 	/**
-	 * @param nlris the nlris to set
+	 * Set the list of NLRIs associated with this object
+	 * @param nlris list of nlris
 	 */
 	public void setNlris(List<MultiProtocolNLRIInformation> nlris) {
 		this.nlris = nlris;
 	}
 
+	/**
+	 * Returns the address family key associated with this object
+	 * @return address family key
+	 */
 	public AddressFamilyKey addressFamilyKey() {
 		return new AddressFamilyKey(getAddressFamily(), getSubsequentAddressFamily());
 	}

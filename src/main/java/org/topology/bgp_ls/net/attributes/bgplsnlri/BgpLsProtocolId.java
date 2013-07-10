@@ -17,6 +17,8 @@
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
 /**
+ * This enumerator represents the protocol types from which the topology
+ * information can be learnt.
  * @author nitinb
  *
  */
@@ -28,6 +30,10 @@ public enum BgpLsProtocolId {
 	Direct,
 	Static;
 	
+	/**
+	 * Coverts the protocol id to an integer value
+	 * @return short value
+	 */
 	public short toCode() {
 		switch(this) {
 		case Unknown:
@@ -47,6 +53,11 @@ public enum BgpLsProtocolId {
 		}
 	}
 	
+	/**
+	 * Converts a short value into the enumerator
+	 * @param code short value
+	 * @return the enumerator
+	 */
 	public static BgpLsProtocolId fromCode(short code) {
 		switch(code) {
 		case 0:
@@ -66,6 +77,10 @@ public enum BgpLsProtocolId {
 		}
 	}
 	
+	/**
+	 * Converts the enumerator to a string
+	 * @return string form of enumerator
+	 */
 	public String toString() {
 		switch(this) {
 		case Unknown:

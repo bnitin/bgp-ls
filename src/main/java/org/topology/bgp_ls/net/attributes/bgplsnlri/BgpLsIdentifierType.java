@@ -17,6 +17,7 @@
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
 /**
+ * Enumeration of various BGP identifier types
  * @author nitinb
  *
  */
@@ -28,6 +29,10 @@ public enum BgpLsIdentifierType {
 	OspfRouteType,
 	MultiTopologyId;
 	
+	/**
+	 * Converts the identifier type to an integer
+	 * @return integer version of identifier
+	 */
 	public int toCode() {
 		switch(this) {
 		case RESERVED:
@@ -47,6 +52,11 @@ public enum BgpLsIdentifierType {
 		}
 	}
 	
+	/**
+	 * Converts an integer form of the identifier to the enumerator type
+	 * @param code Integer form of the identifier
+	 * @return Identifier enumerator
+	 */
 	public static BgpLsIdentifierType fromCode(int code) {
 		switch(code) {
 		case 0:
@@ -66,6 +76,10 @@ public enum BgpLsIdentifierType {
 		}
 	}
 	
+	/**
+	 * Converts the identifier to a string
+	 * @return String form of identifier
+	 */
 	public String toString() {
 		switch(this) {
 		case RESERVED:

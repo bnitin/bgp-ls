@@ -19,6 +19,7 @@ package org.topology.bgp_ls.net.attributes.bgplsnlri;
 import org.topology.bgp_ls.net.SubsequentAddressFamily;
 
 /**
+ * This object uniquely identifies a node in a network
  * @author nitinb
  *
  */
@@ -28,35 +29,56 @@ public class BgpLsNodeNLRI extends BgpLsNLRIInformation {
 	private int instanceIdentifier;
 	private BgpLsNodeDescriptor localNodeDescriptors;
 	
+	/**
+	 * @param safi BGP subsequent address family
+	 */
 	public BgpLsNodeNLRI(SubsequentAddressFamily safi) {
 		super(safi, BgpLsNLRIType.NODE_NLRI);
 	}
 	
+	/**
+	 * Sets the protocol through which this node was learnt
+	 * @param protocolId protocol id
+	 */
 	public void setProtocolId(BgpLsProtocolId protocolId) {
 		this.protocolId = protocolId;
 	}
 	
+	/**
+	 * Gets the protocol through which this node was learnt
+	 * @return
+	 */
 	public BgpLsProtocolId getProtocolId() {
 		return protocolId;
 	}
 	
+	/**
+	 * Sets the node descriptors associated with this node
+	 * @param localNodeDescriptors node descriptors
+	 */
 	public void setLocalNodeDescriptors(BgpLsNodeDescriptor localNodeDescriptors) {
 		this.localNodeDescriptors = localNodeDescriptors;
 	}
 	
+	/**
+	 * Gets the node descriptors associated with this node
+	 * @return node descriptors
+	 */
 	public BgpLsNodeDescriptor getLocalNodeDescriptors() {
 		return localNodeDescriptors;
 	}
 
 	/**
-	 * @return the instanceId
+	 * Gets the instance identifier of this node
+	 * @return instance id
 	 */
 	public int getInstanceIdentifier() {
 		return instanceIdentifier;
 	}
 
 	/**
-	 * @param instanceId the instanceId to set
+	 * Sets the instance identifier of this node
+	 * @param instanceId instance id
 	 */
 	public void setInstanceIdentifier(int instanceIdentifier) {
 		this.instanceIdentifier = instanceIdentifier;

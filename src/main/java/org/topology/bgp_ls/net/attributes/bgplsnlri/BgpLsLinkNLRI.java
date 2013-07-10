@@ -19,6 +19,8 @@ package org.topology.bgp_ls.net.attributes.bgplsnlri;
 import org.topology.bgp_ls.net.SubsequentAddressFamily;
 
 /**
+ * Link NLRI object uniquely identifier the 2 end-points of a link and associated 
+ * properties of the link
  * @author nitinb
  *
  */
@@ -30,10 +32,17 @@ public class BgpLsLinkNLRI extends BgpLsNLRIInformation {
 	private BgpLsNodeDescriptor remoteNodeDescriptors;
 	private BgpLsLinkDescriptor linkDescriptors;
 	
+	/**
+	 * @param safi Subsequent address family type
+	 */
 	public BgpLsLinkNLRI(SubsequentAddressFamily safi) {
 		super(safi, BgpLsNLRIType.LINK_NLRI);
 	}
 	
+	/**
+	 * Checks if the object is well formed and all mandatory fields are set
+	 * @return TRUE if the object is well formed
+	 */
 	public boolean isValidLinkNLRI() {
 		// check for validity of node descriptors
 		if (!localNodeDescriptors.isValidNodeDescriptor() ||
@@ -50,40 +59,72 @@ public class BgpLsLinkNLRI extends BgpLsNLRIInformation {
 		return true;
 	}
 	
+	/**
+	 * Sets the protocol which originated the link information
+	 * @param protocolId protocol identifier
+	 */
 	public void setProtocolId(BgpLsProtocolId protocolId) {
 		this.protocolId = protocolId;
 	}
 	
+	/**
+	 * Gets the protocol which originated the link information
+	 * @return protocol id
+	 */
 	public BgpLsProtocolId getProtocolId() {
 		return protocolId;
 	}
 	
+	/**
+	 * Sets the local node descriptors for this link
+	 * @param localNodeDescriptors local node descriptors
+	 */
 	public void setLocalNodeDescriptors(BgpLsNodeDescriptor localNodeDescriptors) {
 		this.localNodeDescriptors = localNodeDescriptors;
 	}
 	
+	/**
+	 * Gets the local node descriptors for this link
+	 * @return node descriptors
+	 */
 	public BgpLsNodeDescriptor getLocalNodeDescriptors() {
 		return localNodeDescriptors;
 	}
 	
+	/**
+	 * Sets the remote node descriptors for this link
+	 * @param remoteNodeDescriptors remote node descriptors
+	 */
 	public void setRemoteNodeDescriptors(BgpLsNodeDescriptor remoteNodeDescriptors) {
 		this.remoteNodeDescriptors = remoteNodeDescriptors;
 	}
 	
+	/**
+	 * Gets the remote node descriptors for this link
+	 * @return node descriptors
+	 */
 	public BgpLsNodeDescriptor getRemoteNodeDescriptors() {
 		return this.remoteNodeDescriptors;
 	}
 	
-	
+	/**
+	 * Sets the link descriptors for this link
+	 * @param linkDescriptors link descriptors
+	 */
 	public void setLinkDescriptors(BgpLsLinkDescriptor linkDescriptors) {
 		this.linkDescriptors = linkDescriptors;
 	}
 	
+	/**
+	 * Gets the link descriptors for this link
+	 * @return link descriptors
+	 */
 	public BgpLsLinkDescriptor getLinkDescriptors() {
 		return this.linkDescriptors;
 	}
 	
 	/**
+	 * Looks up the router-id associated with the link
 	 * There should be at least 1 common router-id family (ISO or IPv4 or IPv6)
 	 * between the 2 node descriptors
 	 * @param a  descriptor-1
@@ -104,14 +145,16 @@ public class BgpLsLinkNLRI extends BgpLsNLRIInformation {
 	}
 
 	/**
-	 * @return the instanceIdentifier
+	 * Gets the instance identifier associated with the link
+	 * @return instance Identifier
 	 */
 	public int getInstanceIdentifier() {
 		return instanceIdentifier;
 	}
 
 	/**
-	 * @param instanceIdentifier the instanceIdentifier to set
+	 * Sets the instance identifier for this link
+	 * @param instanceIdentifier instance identifier to set
 	 */
 	public void setInstanceIdentifier(int instanceIdentifier) {
 		this.instanceIdentifier = instanceIdentifier;

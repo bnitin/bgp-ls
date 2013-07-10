@@ -38,12 +38,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * This class is used for decoding a data stream containing BGP link-state NLRI
  * @author nitinb
  *
  */
 public class BgpLsNLRICodec extends MultiProtocolNLRICodec {	
 	private static final Logger log = LoggerFactory.getLogger(BgpLsNLRICodec.class);
 
+	/**
+	 * Decodes the data portion of a MP-BGP link state NLRI
+	 * @param buffer Data stream containing the tlv
+	 * @return Object containing the decoded information
+	 */
 	public MultiProtocolNLRIInformation decodeNLRI(ChannelBuffer buffer) {
 		
 		int type = buffer.readUnsignedShort();
@@ -61,6 +67,14 @@ public class BgpLsNLRICodec extends MultiProtocolNLRICodec {
 		return decodeNLRIInternal(valueBuffer, SubsequentAddressFamily.NLRI_BGP_LS, type);
 	}
 
+	/**
+	 * Decodes a BGP link-state NLRI data and returns the corresponding object
+	 * based on the NLRI type.
+	 * @param buffer Data stream containing the tlv
+	 * @param safi BGP subsequent address family
+	 * @param type Type of link-state information contained
+	 * @return Object representing the link-state information
+	 */
 	protected BgpLsNLRIInformation decodeNLRIInternal(ChannelBuffer buffer, SubsequentAddressFamily safi, int type) {
 		
 		BgpLsNLRIInformation nlri = null;
@@ -85,11 +99,13 @@ public class BgpLsNLRICodec extends MultiProtocolNLRICodec {
 	
 		return nlri;
 	}
-	
+
 	/**
-	 * @param safi
-	 * @param fromCode
-	 * @return
+	 * Decodes a topology prefix object
+	 * @param buffer Data stream containing the tlv
+	 * @param safi Subsequent address family
+	 * @param family Address family
+	 * @return Object containing the topology prefix
 	 */
 	private BgpLsNLRIInformation decodeIPTopologyPrefixNLRI(
 			ChannelBuffer buffer, SubsequentAddressFamily safi, BgpLsNLRIType family) {
@@ -156,8 +172,10 @@ public class BgpLsNLRICodec extends MultiProtocolNLRICodec {
 	}
 
 	/**
-	 * @param safi
-	 * @return
+	 * Decodes a node object
+	 * @param buffer Data stream containing the tlv
+	 * @param safi BGP subsequent address family
+	 * @return Object containing the node information
 	 */
 	private BgpLsNLRIInformation decodeBgpLsNodeNLRI(ChannelBuffer buffer, SubsequentAddressFamily safi) {
 		
@@ -204,8 +222,10 @@ public class BgpLsNLRICodec extends MultiProtocolNLRICodec {
 	}
 
 	/**
-	 * @param safi
-	 * @return
+	 * Decodes a link object
+	 * @param buffer Data stream containing the tlv
+	 * @param safi BGP subsequent address family
+	 * @return Object containing the link information
 	 */
 	private BgpLsNLRIInformation decodeBgpLsLinkNLRI(ChannelBuffer buffer, SubsequentAddressFamily safi) {
 		BgpLsLinkNLRI nlri = new BgpLsLinkNLRI(safi);
@@ -285,10 +305,20 @@ public class BgpLsNLRICodec extends MultiProtocolNLRICodec {
 		return nlri;
 	}
 
+	/**
+	 * Returns the length of the encoded NLRI 
+	 * @param nlri Object to encode
+	 * @return length of encoded object
+	 */
 	public int calculateEncodedNLRILength(NetworkLayerReachabilityInformation nlri) {
 		return 0;
 	}
 
+	/**
+	 * Encodes the NLRI as a data stream of TLVs and sub-TLVs
+	 * @param nlri Object to encode
+	 * @return Data stream containing the tlv
+	 */
 	public ChannelBuffer encodeNLRI(NetworkLayerReachabilityInformation nlri) {
 		
 		return null;

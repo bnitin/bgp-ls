@@ -17,6 +17,7 @@
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
 /**
+ * Identifier object that identifies a BGP link-state object in the network
  * @author nitinb
  *
  */
@@ -36,6 +37,10 @@ public class BgpLsIdentifier {
 		return type;
 	}*/
 	
+	/**
+	 * Returns TRUE if this is a valid identifier
+	 * @return
+	 */
 	public boolean isValidIdentifier() {
 		if (instanceId == null) {
 			return false;
@@ -43,42 +48,82 @@ public class BgpLsIdentifier {
 		return true;
 	}
 	
+	/**
+	 * Sets the instance id
+	 * @param instanceId instance id to set
+	 */
 	public void setInstanceIdentifier (byte[] instanceId) {
 		this.instanceId = instanceId;
 	}
 	
+	/**
+	 * Gets the instance id
+	 * @return instance id
+	 */
 	public byte[] getInstanceIdentifier() {
 		return instanceId;
 	}
 	
+	/**
+	 * Sets the domain identifier
+	 * @param domainId domain id to set
+	 */
 	public void setDomainIdentifier (byte[] domainId) {
 		this.domainId = domainId;
 	}
 	
+	/**
+	 * Gets the domain id
+	 * @return domain id
+	 */
 	public byte[] getDomainIdentifier () {
 		return domainId;
 	}
 	
+	/**
+	 * Sets the area id
+	 * @param areaIdentifier area id to set
+	 */
 	public void setAreaIdentifier (byte[] areaIdentifier) {
 		this.areaIdentifier = areaIdentifier;
 	}
 	
+	/**
+	 * Gets the area id
+	 * @return area id
+	 */
 	public byte[] getAreaIdentifier() {
 		return areaIdentifier;
 	}
 	
+	/**
+	 * Sets the OSPF route type
+	 * @param ospfRouteType ospf route type
+	 */
 	public void setOspfRouteType(short ospfRouteType) {
 		this.ospfRouteType = ospfRouteType;
 	}
 	
+	/**
+	 * Gets the OSPF route type
+	 * @return ospf route type
+	 */
 	public short getOspfRouteType() {
 		return ospfRouteType;
 	}
 	
+	/**
+	 * Sets the multi-topology id
+	 * @param multiTopologyId multi-topology id to set
+	 */
 	public void setMultiTopologyId(int multiTopologyId) {
 		this.multiTopologyId = multiTopologyId;
 	}
 	
+	/**
+	 * Gets the multi-topology id
+	 * @return multi-topology id
+	 */
 	public int getMultiTopologyId() {
 		return multiTopologyId;
 	}

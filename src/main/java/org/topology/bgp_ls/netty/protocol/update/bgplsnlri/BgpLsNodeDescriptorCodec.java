@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Decodes a node descriptor tlv
  * @author nitinb
  *
  */
@@ -32,6 +33,11 @@ public class BgpLsNodeDescriptorCodec {
 
 	private static final Logger log = LoggerFactory.getLogger(BgpLsNodeDescriptorCodec.class);
 
+	/**
+	 * Decodes a node descriptor tlv
+	 * @param buffer Data stream containing the tlv
+	 * @param nd node descriptor to update
+	 */
 	public static void decodeNodeDescriptor(ChannelBuffer buffer, BgpLsNodeDescriptor nd) {
 
 		while(buffer.readable()) {
@@ -65,8 +71,9 @@ public class BgpLsNodeDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param nd
+	 * Decodes IPv6 router id sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param nd node descriptor to update
 	 */
 	private static void decodeIPv6RouterId(ChannelBuffer buffer,
 			BgpLsNodeDescriptor nd) {
@@ -86,8 +93,9 @@ public class BgpLsNodeDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param nd
+	 * Decodes IPv4 router id sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param nd node descriptor to update
 	 */
 	private static void decodeIPv4RouterId(ChannelBuffer buffer,
 			BgpLsNodeDescriptor nd) {
@@ -107,8 +115,9 @@ public class BgpLsNodeDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param nd
+	 * Decodes ISO node id sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param nd node descriptor to update
 	 */
 	private static void decodeISONodeId(ChannelBuffer buffer,
 			BgpLsNodeDescriptor nd) {
@@ -128,8 +137,9 @@ public class BgpLsNodeDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param nd
+	 * Decodes member AS sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param nd node descriptor to update
 	 */
 	private static void decodeMemberAS(ChannelBuffer buffer,
 			BgpLsNodeDescriptor nd) {
@@ -148,8 +158,9 @@ public class BgpLsNodeDescriptorCodec {
 	}
 
 	/**
-	 * @param valueBuffer
-	 * @param nd
+	 * Decodes autonomous system sub-tlv
+	 * @param buffer Data stream containing the sub-tlv
+	 * @param nd node descriptor to update
 	 */
 	private static void decodeAutonomousSystem(ChannelBuffer buffer,
 			BgpLsNodeDescriptor nd) {

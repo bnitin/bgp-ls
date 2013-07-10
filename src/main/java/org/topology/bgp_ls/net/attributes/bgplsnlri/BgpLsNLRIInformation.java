@@ -16,14 +16,12 @@
  */
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
-import java.util.Set;
-
 import org.topology.bgp_ls.net.AddressFamily;
 import org.topology.bgp_ls.net.SubsequentAddressFamily;
 import org.topology.bgp_ls.net.attributes.MultiProtocolNLRIInformation;
-import org.topology.bgp_ls.net.attributes.PathAttribute;
 
 /**
+ * This object extends the MultiProtocol NLRI object with the BGP-LS information.
  * @author nitinb
  *
  */
@@ -33,8 +31,8 @@ public class BgpLsNLRIInformation extends MultiProtocolNLRIInformation {
 	private byte[] routeDistinguisher;
 		
 	/**
-	 * @param afi
-	 * @param safi
+	 * @param safi  BGP subsequent address family
+	 * @param nlriType Type of BGP NLRI
 	 */
 	public BgpLsNLRIInformation(SubsequentAddressFamily safi, BgpLsNLRIType nlriType) {
 		super(AddressFamily.BGP_LS, safi);
@@ -43,29 +41,28 @@ public class BgpLsNLRIInformation extends MultiProtocolNLRIInformation {
 
 
 	/**
-	 * @return the nlriType
+	 * Gets the BGP NLRI type associated with the object
+	 * @return nlriType
 	 */
 	public BgpLsNLRIType getNlriType() {
 		return nlriType;
 	}
 
 	/**
-	 * @return the routeDistinguisher
+	 * Gets the BGP link state route distinguisher
+	 * @return route distinguisher
 	 */
 	public byte[] getRouteDistinguisher() {
 		return routeDistinguisher;
 	}
 
 	/**
-	 * @param routeDistinguisher the routeDistinguisher to set
+	 * Sets the route distinguisher for the BGP link state object
+	 * @param routeDistinguisher the route distinguisher
 	 */
 	public void setRouteDistinguisher(byte[] routeDistinguisher) {
 		if (getSubsequentAddressFamily() == SubsequentAddressFamily.NLRI_MPLS_VPN) {
 			this.routeDistinguisher = routeDistinguisher;
 		}
-	}
-
-	@Override
-	public void processNLRIInformation(Set<PathAttribute> attrs) {
 	}
 }

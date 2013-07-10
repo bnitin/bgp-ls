@@ -17,6 +17,8 @@
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
 /**
+ * This enumerator contains the identifier values for various objects and
+ * attributes associated with BGP link-state data. 
  * The TLV/sub-tlv types are based on draft-ietf-idr-ls-distribution-01
  * @author nitinb
  *
@@ -58,6 +60,10 @@ public enum BgpLsType {
 	OSPFForwardingAddress,
 	Unknown;
 	
+	/**
+	 * Convert the enumerator into an integer value
+	 * @return integer value
+	 */
 	public int toCode() {
 		switch(this) {
 		case LocalNodeDescriptor:
@@ -133,6 +139,11 @@ public enum BgpLsType {
 		}
 	}
 	
+	/**
+	 * Gets a enumerator from an integer value
+	 * @param code integer value
+	 * @return the enumerator
+	 */
 	public static BgpLsType fromCode(int code) {
 		switch(code) {
 		case 256:
@@ -208,6 +219,10 @@ public enum BgpLsType {
 		}
 	}
 	
+	/**
+	 * Converts the enumerator to a string
+	 * @return String form of enumerator
+	 */
 	public String toString() {
 		switch(this) {
 		case LocalNodeDescriptor:

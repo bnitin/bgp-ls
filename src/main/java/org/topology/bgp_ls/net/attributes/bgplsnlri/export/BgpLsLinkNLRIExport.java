@@ -29,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Exports a link object in JSON format
  * @author nitinb
  *
  */
@@ -36,6 +37,12 @@ public class BgpLsLinkNLRIExport {
 
 	private static final Logger log = LoggerFactory.getLogger(BgpLsLinkNLRI.class);
 
+	/**
+	 * Exports a link object in JSON format
+	 * @param linkNLRI link object
+	 * @param attr link state attribute
+	 * @throws Exception
+	 */
 	synchronized public static void export(MultiProtocolNLRIInformation linkNLRI, PathAttribute attr) throws Exception {
 		LinkStateAttribute lsa = (LinkStateAttribute)attr;
 		JsonGenerator exportWriter = (JsonGenerator)MultiProtocolNLRIExport.getExportWriter();
@@ -52,6 +59,12 @@ public class BgpLsLinkNLRIExport {
 		}
 	}
 	
+	/**
+	 * Exports the node descriptors in JSON format
+	 * @param exportWriter handle to json writer
+	 * @param linkNLRI link object
+	 * @throws Exception
+	 */
 	private static void writeNodeDescriptors(JsonGenerator exportWriter, BgpLsLinkNLRI linkNLRI) throws Exception {
 		BgpLsNodeDescriptor localDescriptor = linkNLRI.getLocalNodeDescriptors();
 		BgpLsNodeDescriptor remoteDescriptor = linkNLRI.getRemoteNodeDescriptors();
@@ -128,6 +141,12 @@ public class BgpLsLinkNLRIExport {
 		}
 	}
 	
+	/**
+	 * Exports the link attributes in JSON format
+	 * @param exportWriter handle to JSON writer
+	 * @param attr link attributes
+	 * @throws Exception
+	 */
 	synchronized private static void writeLinkAttribute(JsonGenerator exportWriter, LinkStateAttribute attr) throws Exception {
 		
 		if (attr == null) {

@@ -27,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Exports a node object in JSON format
  * @author nitinb
  *
  */
@@ -34,6 +35,12 @@ public class BgpLsNodeNLRIExport {
 
 	private static final Logger log = LoggerFactory.getLogger(BgpLsNodeNLRI.class);
 
+	/**
+	 * Exports a node object in JSON format
+	 * @param nodeNLRI node object
+	 * @param attr link state attributes
+	 * @throws Exception
+	 */
 	synchronized public static void export(MultiProtocolNLRIInformation nodeNLRI, PathAttribute attr) throws Exception {
 		LinkStateAttribute lsa = (LinkStateAttribute)attr;
 		JsonGenerator exportWriter = (JsonGenerator)MultiProtocolNLRIExport.getExportWriter();

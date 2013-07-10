@@ -23,6 +23,7 @@ import java.net.InetAddress;
 import org.topology.bgp_ls.net.AddressFamily;
 
 /**
+ * This object represents a IP topology prefix
  * @author nitinb
  *
  */
@@ -31,12 +32,22 @@ public class IPPrefix {
 	private byte[] prefix;
 	AddressFamily addressFamily;
 	
+	/**
+	 * 
+	 * @param prefixLength prefix length
+	 * @param prefix the IP prefix itself
+	 * @param addressFamily address family (IPv4 or IPv6)
+	 */
 	public IPPrefix(short prefixLength, byte[] prefix, AddressFamily addressFamily) {
 		this.prefixLength = prefixLength;
 		this.prefix = prefix;
 		this.addressFamily = addressFamily;
 	}
 	
+	/**
+	 * Checks if the IP prefix is a valid prefix
+	 * @return
+	 */
 	public boolean isValidPrefix() {
 		if (prefixLength == 0 || prefixLength > 128) {
 			return false;
@@ -44,18 +55,34 @@ public class IPPrefix {
 		return true;
 	}
 	
+	/**
+	 * Returns the prefix length
+	 * @return prefix length
+	 */
 	public short getPrefixLength() {
 		return prefixLength;
 	}
 	
+	/**
+	 * Gets the prefix value
+	 * @return prefix
+	 */
 	public byte[] getPrefix() {
 		return prefix;
 	}
 	
+	/**
+	 * Gets the address family associated with the prefix
+	 * @return address family
+	 */
 	public AddressFamily getAddressFamily() {
 		return addressFamily;
 	}
 	
+	/**
+	 * Converts a IPv4 prefix into a string
+	 * @return String form of prefix
+	 */
 	private String ipv4ToString() {
 		byte ipData[];
 		InetAddress addr;
@@ -74,7 +101,11 @@ public class IPPrefix {
 			return null;
 		}
 	}
-	
+
+	/**
+	 * Converts a IPv6 prefix into a string
+	 * @return String form of prefix
+	 */
 	private String ipv6ToString() {
 		byte ipData[];
 		InetAddress addr;
@@ -94,6 +125,10 @@ public class IPPrefix {
 		}
 	}
 	
+	/**
+	 * Converts a IP prefix into a string
+	 * @return String form of prefix
+	 */
 	public String toString() {
 		switch (addressFamily) {
 		case IPv4:

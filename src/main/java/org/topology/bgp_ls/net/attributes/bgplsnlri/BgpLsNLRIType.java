@@ -17,6 +17,7 @@
 package org.topology.bgp_ls.net.attributes.bgplsnlri;
 
 /**
+ * Enumerator for various BGP link state object (NLRI) type
  * @author nitinb
  *
  */
@@ -27,6 +28,10 @@ public enum BgpLsNLRIType {
 	IPV4_TOPOLOGY_PREFIX_NLRI,
 	IPV6_TOPOLOGY_PREFIX_NLRI;
 	
+	/**
+	 * Converts the enumerator into an integer code
+	 * @return integer value
+	 */
 	public int toCode() {
 		switch(this) {
 		case RESERVED:
@@ -44,6 +49,11 @@ public enum BgpLsNLRIType {
 		}
 	}
 	
+	/**
+	 * Given an integer value, converts it to the enumerator
+	 * @param code integer value
+	 * @return Bgp link state object type
+	 */
 	public static BgpLsNLRIType fromCode(int code) {
 		switch(code) {
 		case 0:
@@ -61,6 +71,10 @@ public enum BgpLsNLRIType {
 		}
 	}
 	
+	/**
+	 * Converts the enumerator to a String form
+	 * @return string representation of enumerator 
+	 */
 	public String toString() {
 		switch(this) {
 		case RESERVED:
