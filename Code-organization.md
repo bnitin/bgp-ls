@@ -1,4 +1,7 @@
 
+**Code organization and understanding can be obtained by generating Javadoc from the sources.**
+
+
 **Code in this repository is organized as follows:**
 
 * bgpd
