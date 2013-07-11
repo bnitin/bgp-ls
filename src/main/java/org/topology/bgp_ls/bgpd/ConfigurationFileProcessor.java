@@ -15,7 +15,7 @@
  * 
  * File: org.bgp4j.apps.bgpd.config.ConfigurationFileProcessor.java 
  */
-package org.topology.bgp_ls.bgpd.config;
+package org.topology.bgp_ls.bgpd;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;

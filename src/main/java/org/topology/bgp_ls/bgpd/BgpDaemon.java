@@ -27,7 +27,6 @@ import org.apache.commons.cli.PosixParser;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.topology.bgp_ls.bgpd.config.ConfigurationFileProcessor;
 import org.topology.bgp_ls.netty.SingletonRegistry;
 import java.io.File;
 import org.codehaus.jackson.JsonFactory;
